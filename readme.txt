@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: ads, advertisements, ad, widget, rotate, sidebar
 Requires at least: 2.8.0
 Tested up to: 2.8.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 
 Ad Rotator is a simple widget to display random HTML code (advertisements)
 from a given group of HTML-chunks on sidebar.
@@ -13,7 +13,7 @@ from a given group of HTML-chunks on sidebar.
 Ad Rotator is a simple WordPress widget to display random HTML code
 from a given group of HTML-chunks separated with `<!--more-->`
 on sidebar. Basically it shows different HTML every time you requesting
-page. There are Up to 9 instances of this widget may exist.
+page. There are infinite number of instances of this widget may exist.
 
 = Support =
 
@@ -30,11 +30,10 @@ the *Other Notes* tab.
    directory.
 2. Enable **Ad Rotator** plugin on your *Plugins* page in
    *Site Admin*.
-3. Go to the *Options/Permalinks* page in *Site Admin* and use `%scategory%`
-   option in *Custom text* field (you can look <a href="http://codex.wordpress.org/Using_Permalinks">here</a>
-   for other options). For example you could use `/%scategory%/%postname%/`.
-4. Now on Write Post page near the categories checkboxes radio button will
-   appear.
+3. Go to the *Appearence/Widgets* page in *Site Admin* and drag as
+   many Ad Rotator widgets to your sidebars as you wish. Configure
+   instances separating HTML blocks with `<!--more-->`. Save changes.
+4. Now on Ad Rotator blocks should appear on your sidebars.
 
 == Frequently Asked Questions ==
 
@@ -57,7 +56,11 @@ Of course, you can use any HTML you wish.
 
 == Changelog ==
 
-= 2.0.0 =
+= 2.0.1 (July 29, 2009) =
+* Fixed Installation section in readme.txt.
+* Filter our HTML when user has no rights to edit unfiltered HTML.
+
+= 2.0.0 (July 29, 2009) =
 * Completely rewritten using new WordPress 2.8 widgets API.
 * Readme file and couple of screenshots added.
 
