@@ -1,9 +1,9 @@
 === Ad Rotator ===
 Contributors: kpumuk
-Tags: ads, advertisements, ad, widget, rotate, sidebar
+Tags: ads, advertisements, ad, widget, rotate, sidebar, adsense, clicksor, chitika
 Requires at least: 2.8.0
 Tested up to: 2.8.2
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 Ad Rotator is a simple widget to display random HTML code (advertisements)
 from a given group of HTML-chunks on sidebar.
@@ -23,6 +23,43 @@ Promise, I will answer every email I received.
 
 If you want to contribute your code, see the *Development* section under
 the *Other Notes* tab.
+
+= Migrating from AdRotator plugin =
+
+<a href="http://blog.taragana.com/index.php/archive/wordpress-plugin-adrotator-rotate-your-ads-including-adsense-dynamically/">AdRotator</a>
+plugin is a simple file-based ad rotation solution. It was developed by
+Angsuman Chakraborty long time ago, but occasionally we have the same
+plugin names from WordPress' point of view. If you are using this plugin,
+you may click upgrade link from your *Plugins* page and it being replaced
+with Ad Rotator widget.
+
+So now you have two ways to solve the problem `'getad()' function is undefined`:
+1. you can download AdRotator and ignore upgrade notices, or
+2. you can upgrade your theme to use Ad Rotator Widget.
+
+Here is how to upgrade your theme. Find all occurrences of `getad` function,
+and replace them with something like this:
+
+    register_sidebar(array(
+      'name' => 'ad-area',
+      'id' => 'ad-area',
+      'before_widget' => '',
+      'after_widget' => '',
+      'before_title' => '',
+      'after_title' => ''
+    ));
+
+Make sure you've replaced `ad-area` with the name suitable for you. Also
+you can specify additional options, like `before_title` and `after_title`.
+
+Then open the *Appearence/Widgets* page in *Site Admin* and configure
+Ad Rotator widget instances for your advertisements area. Just take into
+account, that in files for AdRotator ads are separated with new line
+character (ie each line means separate ad), but in Ad Rotator widget
+you should separate you blocks with `<!--more-->` (so each of them
+may contain more then one line.)
+
+Anyways, sorry for сonfusion, I did not want to сheat on you.
 
 == Installation ==
 
@@ -47,7 +84,13 @@ Number of advertisements in each instance is unlimited.
 
 = Can I use Google AdSense code as one of my ads? =
 
-Of course, you can use any HTML you wish.
+Of course, you can use any HTML you wish (AdSense, Clicksor, Chitika,
+and everything else).
+
+= WordPress shows `'getad()' function is undefined` error =
+
+See explanation on the *Description* page in *Migrating from
+AdRotator plugin* section.
 
 == Screenshots ==
 
@@ -55,6 +98,9 @@ Of course, you can use any HTML you wish.
 2. Sidebar with Ad Rotator widgets.
 
 == Changelog ==
+
+= 2.0.2 (July 29, 2009) =
+* Added section *Migrating from AdRotator plugin* in readme.txt.
 
 = 2.0.1 (July 29, 2009) =
 * Fixed Installation section in readme.txt.
