@@ -3,7 +3,7 @@
 Plugin Name: Ad Rotator
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/ad-rotator/
 Description: Simple widget to display random HTML code (advertisements) from a given group of HTML-chunks separated with <tt>&lt;!&#45;&#45;more&#45;&#45;&gt;</tt> on sidebar.
-Version: 2.0.0
+Version: 2.0.1
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -50,7 +50,10 @@ class Ad_Rotator_Widget extends WP_Widget {
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
     $instance['title'] = strip_tags($new_instance['title']);
-    $instance['text'] = $new_instance['text'];
+    if (!current_user_can('unfiltered_html'))
+      $instance['text'] = $new_instance['text'];
+    else
+      $instance['text'] = wp_filter_post_kses($new_instance['text']);
 
     return $instance;
   }
