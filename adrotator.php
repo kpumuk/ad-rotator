@@ -28,7 +28,7 @@ function widget_adrotator_init()
 			<?php echo $after_widget; ?>
 	<?php
 	}
-	
+
 	function widget_adrotator_control($number) {
 		$options = $newoptions = get_option('widget_adrotator');
 		if ( $_POST["adrotator-submit-$number"] ) {
@@ -50,7 +50,7 @@ function widget_adrotator_init()
 				<input type="hidden" id="adrotator-submit-<?php echo "$number"; ?>" name="adrotator-submit-<?php echo "$number"; ?>" value="1" />
 	<?php
 	}
-	
+
 	function widget_adrotator_setup() {
 		$options = $newoptions = get_option('widget_adrotator');
 		if ( isset($_POST['adrotator-number-submit']) ) {
@@ -65,7 +65,7 @@ function widget_adrotator_init()
 			widget_adrotator_register($options['number']);
 		}
 	}
-	
+
 	function widget_adrotator_page() {
 		$options = $newoptions = get_option('widget_adrotator');
 	?>
@@ -81,7 +81,7 @@ function widget_adrotator_init()
 		</div>
 	<?php
 	}
-	
+
 	function widget_adrotator_register() {
 		$options = get_option('widget_adrotator');
 		$number = $options['number'];
@@ -99,7 +99,7 @@ function widget_adrotator_init()
 	widget_adrotator_register();
 }
 
-	
+
 // Tell Dynamic Sidebar about our new widget and its control
 add_action('plugins_loaded', 'widget_adrotator_init');
 
