@@ -58,7 +58,7 @@ Of course, you can use any HTML you wish.
 
 = 2.0.1 (July 29, 2009) =
 * Fixed Installation section in readme.txt.
-* Filter our HTML when user has no rights to edit unfiltered HTML.
+* Filter out HTML when user has no rights to edit unfiltered HTML.
 
 = 2.0.0 (July 29, 2009) =
 * Completely rewritten using new WordPress 2.8 widgets API.
